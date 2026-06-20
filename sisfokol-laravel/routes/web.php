@@ -5,7 +5,6 @@ use App\Http\Controllers\Admin\SchoolProfileController;
 use App\Http\Controllers\Admin\AcademicYearController;
 use App\Http\Controllers\Admin\ClassroomController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Counselor\DashboardController as CounselorDashboardController;
 use App\Http\Controllers\Finance\DashboardController as FinanceDashboardController;
 use App\Http\Controllers\Homeroom\DashboardController as HomeroomDashboardController;
@@ -21,7 +20,9 @@ use Illuminate\Support\Facades\Route;
 | Public Routes
 |--------------------------------------------------------------------------
 */
-
+Route::get('/', function () {
+    return redirect()->route('login');
+});
 
 /*
 |--------------------------------------------------------------------------
