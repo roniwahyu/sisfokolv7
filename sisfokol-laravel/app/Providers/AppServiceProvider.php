@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Providers;
+
+use App\Support\TenantContext;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     */
+    public function register(): void
+    {
+        $this->app->singleton(TenantContext::class, function () {
+            return new TenantContext();
+        });
+    }
+
+    /**
+     * Bootstrap any application services.
+     */
+    public function boot(): void
+    {
+        // Set default locale Indonesia
+        setlocale(LC_TIME, 'id_ID.utf8', 'id_ID', 'id');
+
+        Blueprint::macro('tenantAndAuditColumns', function (bool $withSoftDelete = true) {
+            tenant_and_audit_columns($this, $withSoftDelete);
+        });
+
+        Blueprint::macro('auditColumns', function (bool $withSoftDelete = true) {
+            audit_columns($this, $withSoftDelete);
+        });
+    }
+}

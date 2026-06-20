@@ -1,0 +1,29 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('summative_assessments', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('academic_year_id')->constrained('academic_years')->restrictOnDelete();
+            $table->foreignId('subject_id')->constrained('subjects')->cascadeOnDelete();
+            $table->foreignId('classroom_id')->constrained('classrooms')->cascadeOnDelete();
+            $table->string('name', 200); // PTS, PAS, UH
+            $table->date('assessment_date');
+            $table->text('description')->nullable();
+            $table->string('legacy_id', 50)->nullable()->index();
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('summative_assessments');
+    }
+};

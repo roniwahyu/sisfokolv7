@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class StoreFormativeAssessmentRequest extends FormRequest
+{
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    public function rules(): array
+    {
+        return [
+            'academic_year_id' => ['required', 'exists:academic_years,id'],
+            'subject_id' => ['required', 'exists:subjects,id'],
+            'classroom_id' => ['required', 'exists:classrooms,id'],
+            'name' => ['required', 'string', 'max:200'],
+            'assessment_date' => ['required', 'date'],
+            'description' => ['nullable', 'string'],
+        ];
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'subject_id' => 'Mapel',
+            'classroom_id' => 'Kelas',
+            'name' => 'Nama Asesmen',
+            'assessment_date' => 'Tanggal Asesmen',
+        ];
+    }
+}
