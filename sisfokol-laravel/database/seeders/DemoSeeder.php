@@ -178,6 +178,9 @@ class DemoSeeder extends Seeder
         $kelas->update(['wali_kelas_id' => $createdGurus['homeroom-teacher']->id]);
         $classroom->update(['homeroom_teacher_id' => $createdEmployees['homeroom-teacher']->id]);
 
+        $day = \App\Models\Day::where('number', 1)->first() ?? \App\Models\Day::first();
+        $timeSlot = \App\Models\TimeSlot::first();
+
         // ─── 2b. Teaching Schedule ─────────────────────────────────────────
         $schedule = \App\Models\Schedule::create([
             'academic_year_id' => $academicYear->id,
@@ -185,8 +188,8 @@ class DemoSeeder extends Seeder
             'subject_id' => $subject->id,
             'employee_id' => $createdEmployees['teacher']->id,
             'room_id' => $room->id,
-            'day_id' => 1, // Senin
-            'time_slot_id' => 1,
+            'day_id' => $day?->id ?? 1, // Senin
+            'time_slot_id' => $timeSlot?->id ?? 1,
             'description' => 'Matematika Kelas X-A',
         ]);
 
