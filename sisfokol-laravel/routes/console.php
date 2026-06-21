@@ -22,3 +22,4 @@ Artisan::command('inspire', function () {
 
 Schedule::command('backup:run')->daily()->at('02:00');
 Schedule::command('queue:work --stop-when-empty')->everyMinute()->withoutOverlapping();
+Schedule::command('tagihan:generate')->monthlyOn(1, '02:00');
