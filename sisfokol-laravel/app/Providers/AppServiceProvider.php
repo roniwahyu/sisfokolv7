@@ -5,6 +5,15 @@ namespace App\Providers;
 use App\Support\TenantContext;
 use App\Modules\Auth\Models\AuditLog;
 use App\Modules\Auth\Policies\AuditLogPolicy;
+use App\Modules\Academic\Models\Siswa;
+use App\Modules\Academic\Policies\SiswaPolicy;
+use App\Modules\Academic\Observers\SiswaObserver;
+use App\Modules\Academic\Models\Guru;
+use App\Modules\Academic\Policies\GuruPolicy;
+use App\Modules\Academic\Models\Kelas;
+use App\Modules\Academic\Policies\KelasPolicy;
+use App\Modules\Academic\Models\Jadwal;
+use App\Modules\Academic\Policies\JadwalPolicy;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -30,11 +39,16 @@ class AppServiceProvider extends ServiceProvider
         // Set default locale Indonesia
         setlocale(LC_TIME, 'id_ID.utf8', 'id_ID', 'id');
 
-        // Register User observer
+        // Register observers
         \App\Models\User::observe(\App\Modules\Auth\Observers\UserObserver::class);
+        Siswa::observe(SiswaObserver::class);
 
-        // Register Policy
+        // Register Policies
         Gate::policy(AuditLog::class, AuditLogPolicy::class);
+        Gate::policy(Siswa::class, SiswaPolicy::class);
+        Gate::policy(Guru::class, GuruPolicy::class);
+        Gate::policy(Kelas::class, KelasPolicy::class);
+        Gate::policy(Jadwal::class, JadwalPolicy::class);
 
         Blueprint::macro('tenantAndAuditColumns', function (bool $withSoftDelete = true) {
             tenant_and_audit_columns($this, $withSoftDelete);

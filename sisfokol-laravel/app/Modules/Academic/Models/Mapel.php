@@ -13,6 +13,11 @@ class Mapel extends Model
 {
     use HasFactory, SoftDeletes, BelongsToTenant, TracksAuditColumns;
 
+    protected static function newFactory()
+    {
+        return \Database\Factories\MapelFactory::new();
+    }
+
     protected $table = 'mapel';
 
     protected $fillable = [
