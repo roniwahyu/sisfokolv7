@@ -23,6 +23,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
             'force.reset'        => \App\Http\Middleware\ForcePasswordReset::class,
             'impersonate.block'  => \App\Http\Middleware\BlockWhileImpersonating::class,
+            'plugin'             => \App\Http\Middleware\EnsurePluginEnabled::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

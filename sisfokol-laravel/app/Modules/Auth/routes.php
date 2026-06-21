@@ -39,5 +39,11 @@ Route::middleware('web')->group(function () {
             Route::get('/', [\App\Modules\Auth\Controllers\RbacUserController::class, 'index'])->name('rbac.users');
             Route::post('/{user}/roles', [\App\Modules\Auth\Controllers\RbacUserController::class, 'assignRole'])->name('rbac.users.roles');
         });
+
+        Route::prefix('admin/plugins')->group(function () {
+            Route::get('/', [\App\Modules\Auth\Controllers\PluginController::class, 'index'])->name('plugins.index');
+            Route::post('/{kode}/activate', [\App\Modules\Auth\Controllers\PluginController::class, 'activate'])->name('plugins.activate');
+            Route::post('/{kode}/deactivate', [\App\Modules\Auth\Controllers\PluginController::class, 'deactivate'])->name('plugins.deactivate');
+        });
     });
 });
