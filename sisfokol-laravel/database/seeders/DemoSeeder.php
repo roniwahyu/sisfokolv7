@@ -60,7 +60,6 @@ class DemoSeeder extends Seeder
 
         // ─── 1c. Subject & Room ────────────────────────────────────────────
         $subject = \App\Models\Subject::create([
-            'tenant_id' => $tenant->id,
             'academic_year_id' => $academicYear->id,
             'name' => 'Matematika',
             'code' => 'MTK',
