@@ -15,7 +15,10 @@ use App\Modules\Academic\Policies\KelasPolicy;
 use App\Modules\Academic\Models\Jadwal;
 use App\Modules\Academic\Policies\JadwalPolicy;
 use App\Models\Attendance;
+use App\Models\Permit;
 use App\Modules\Presence\Observers\AttendanceObserver;
+use App\Modules\Presence\Policies\PresensiPolicy;
+use App\Modules\Presence\Policies\IzinPolicy;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -52,6 +55,8 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(Guru::class, GuruPolicy::class);
         Gate::policy(Kelas::class, KelasPolicy::class);
         Gate::policy(Jadwal::class, JadwalPolicy::class);
+        Gate::policy(Attendance::class, PresensiPolicy::class);
+        Gate::policy(Permit::class, IzinPolicy::class);
 
         Blueprint::macro('tenantAndAuditColumns', function (bool $withSoftDelete = true) {
             tenant_and_audit_columns($this, $withSoftDelete);
