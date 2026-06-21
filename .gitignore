@@ -1,6 +1,6 @@
 # Legacy Native App Folders
 LEGACY/*
-DOCS/
+# DOCS/
 backups/
 
 # Laravel App Configuration and Build Files (Root-relative mappings)

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototype Sistem Informasi Sekolah Modern - SMP IT</title>
+  <style>
+    /* Premium Modern Dashboard Styles - Pure CSS No External Libraries */
+    :root {
+      --primary: #1e4d8c;
+      --primary-hover: #163e70;
+      --secondary: #2ec4b6;
+      --success: #2ecc71;
+      --warning: #f1c40f;
+      --danger: #e74c3c;
+      --dark: #2c3e50;
+      --light: #f4f6f9;
+      --sidebar-width: 240px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: var(--light); color: var(--dark); display: flex; height: 100vh; overflow: hidden; }
+
+    /* App Shell Container */
+    #app { display: flex; width: 100%; height: 100%; }
+
+    /* Sidebar Navigation styling */
+    .sidebar {
+      width: var(--sidebar-width);
+      background-color: var(--dark);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      z-index: 100;
+    }
+    .sidebar-brand {
+      padding: 24px 20px;
+      font-size: 20px;
+      font-weight: bold;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sidebar-brand small {
+      display: block;
+      font-size: 11px;
+      color: var(--secondary);
+      font-weight: normal;
+      margin-top: 4px;
+    }
+    .sidebar-menu-wrapper {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px 0;
+    }
+    .sidebar-heading {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.4);
+      padding: 10px 20px 5px;
+      margin-top: 10px;
+    }
+    .sidebar-menu {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-left: 4px solid transparent;
+    }
+    .sidebar-menu:hover {
+      background-color: rgba(255,255,255,0.05);
+      color: #fff;
+    }
+    .sidebar-menu.active {
+      background-color: rgba(255,255,255,0.1);
+      color: var(--secondary);
+      border-left-color: var(--secondary);
+      font-weight: bold;
+    }
+
+    /* Main Window styling */
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .header {
+      background-color: #fff;
+      height: 70px;
+      border-bottom: 1px solid #e1e8ed;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      flex-shrink: 0;
+    }
+    .header-title h2 { font-size: 20px; color: var(--primary); }
+    .header-user {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 14px;
+    }
+    .user-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    /* Content Area Frame */
+    .content-area {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s; }
+
+    /* Custom Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Standard Cards Layout */
+    .grid { display: grid; gap: 24px; margin-bottom: 24px; }
+    .grid-4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); }
+    
+    .card { background: #fff; border-radius: 10px; border: 1px solid #e1e8ed; padding: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+    .card-title { font-size: 16px; font-weight: bold; margin-bottom: 15px; color: var(--dark); display: flex; align-items: center; justify-content: space-between; }
+    
+    .stat-card { display: flex; align-items: center; gap: 20px; }
+    .stat-icon { width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; }
+    .stat-info .stat-val { font-size: 26px; font-weight: bold; line-height: 1.2; }
+    .stat-info .stat-lbl { font-size: 13px; color: #7f8c8d; margin-top: 4px; }
+
+    /* Theme colors background helper */
+    .bg-blue { background-color: #3498db; }
+    .bg-teal { background-color: var(--secondary); }
+    .bg-green { background-color: var(--success); }
+    .bg-orange { background-color: #e67e22; }
+    .bg-purple { background-color: #9b59b6; }
+    .bg-red { background-color: var(--danger); }
+
+    /* Table styles */
+    .table-container { width: 100%; overflow-x: auto; margin-top: 10px; }
+    .table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+    .table th, .table td { padding: 12px 16px; border-bottom: 1px solid #e1e8ed; }
+    .table th { background-color: #f8fafc; font-weight: bold; color: #475569; }
+    .table tr:hover { background-color: #f8fafc; }
+
+    /* Form Inputs styling */
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 8px; color: var(--dark); }
+    .input { width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; transition: border-color 0.2s; outline: none; }
+    .input:focus { border-color: var(--primary); }
+    .input-row { display: flex; gap: 15px; margin-bottom: 16px; }
+    .input-row .form-group { flex: 1; margin-bottom: 0; }
+
+    /* Button styles */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background-color: var(--primary); color: #fff; border: none; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; transition: background-color 0.2s; }
+    .btn:hover { background-color: var(--primary-hover); }
+    .btn-secondary { background-color: #64748b; }
+    .btn-secondary:hover { background-color: #475569; }
+    .btn-success { background-color: var(--success); }
+    .btn-success:hover { background-color: #27ae60; }
+    .btn-danger { background-color: var(--danger); }
+    .btn-danger:hover { background-color: #c0392b; }
+
+    /* Badges */
+    .badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; text-align: center; }
+    .badge-success { background-color: #d1fae5; color: #065f46; }
+    .badge-warning { background-color: #fef3c7; color: #92400e; }
+    .badge-danger { background-color: #fee2e2; color: #991b1b; }
+    .badge-info { background-color: #e0f2fe; color: #0369a1; }
+
+    /* Sweet Success Banner Notification */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--dark);
+      color: #fff;
+      padding: 16px 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 1000;
+      transform: translateY(150%);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .toast.show { transform: translateY(0); }
+    .toast-icon { color: var(--secondary); font-size: 20px; }
+
+    /* Custom Layout for Rapor */
+    .raport-paper {
+      background: #fff;
+      border: 1px solid #94a3b8;
+      border-radius: 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .raport-header { text-align: center; border-bottom: 3px double var(--dark); padding-bottom: 15px; margin-bottom: 20px; }
+    .raport-header h3 { font-size: 22px; color: var(--dark); }
+    .raport-info { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 25px; line-height: 1.8; }
+    
+    /* Chart SVG drawing helper style */
+    .chart-container { display: flex; align-items: center; justify-content: center; height: 160px; }
+
+  </style>
+</head>
+<body>
+
+  <!-- App Wrapper Frame -->
+  <div id="app">
+    
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+      <div class="sidebar-brand">
+        <div>
+          <span>SIS SMP IT</span>
+          <small>Sistem Informasi Sekolah</small>
+        </div>
+      </div>
+      <div class="sidebar-menu-wrapper">
+        
+        <div class="sidebar-heading">Portal Menu</div>
+        <div class="sidebar-menu active" onclick="switchTab('tab-admin')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Admin Portal
+        </div>
+        <div class="sidebar-menu" onclick="switchTab('tab-principal')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H5a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          Kepala Sekolah
+        </div>
+        <div class="sidebar-menu" onclick="switchTab('tab-guru')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          Guru Mapel
+        </div>
+        <div class="sidebar-menu" onclick="switchTab('tab-homeroom')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          Wali Kelas
+        </div>
+        <div class="sidebar-menu" onclick="switchTab('tab-finance')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Bendahara
+        </div>
+        <div class="sidebar-menu" onclick="switchTab('tab-bk')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          Guru BK & Piket
+        </div>
+        <div class="sidebar-menu" onclick="switchTab('tab-student')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          Siswa & Ortu
+        </div>
+
+        <div class="sidebar-heading">Aplikasi & Form</div>
+        <div class="sidebar-menu" onclick="switchTab('form-nilai')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 00-2 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          Form Input Nilai
+        </div>
+        <div class="sidebar-menu" onclick="switchTab('form-absensi')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          Form Absensi Piket
+        </div>
+        <div class="sidebar-menu" onclick="switchTab('form-kasir')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          Form Kasir SPP
+        </div>
+        <div class="sidebar-menu" onclick="switchTab('raport-pdf')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Draft Rapor Asesmen
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Main Window wrapper -->
+    <div class="main-wrapper">
+      
+      <!-- Top header bar -->
+      <div class="header">
+        <div class="header-title">
+          <h2 id="main-header-title">Admin Dashboard & Master Data</h2>
+        </div>
+        <div class="header-user">
+          <div class="user-info" style="text-align:right">
+            <strong>Ust. Ahmad Ridwan, S.Kom</strong>
+            <div style="font-size:11px; color:#7f8c8d">Role: Administrator</div>
+          </div>
+          <div class="user-avatar">A</div>
+        </div>
+      </div>
+
+      <!-- Scrollable content area -->
+      <div class="content-area">
+        
+        <!-- 1. TAB: ADMIN PORTAL -->
+        <div id="tab-admin" class="tab-content active">
+          <!-- Stat cards grid -->
+          <div class="grid grid-4">
+            <div class="card stat-card">
+              <div class="stat-icon bg-blue">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+              </div>
+              <div class="stat-info">
+                <div class="stat-val">312</div>
+                <div class="stat-lbl">Siswa Aktif</div>
+              </div>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-icon bg-teal">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1M19 20a2 2 0 002-2V8a2 2 0 00-2-2h-5"/></svg>
+              </div>
+              <div class="stat-info">
+                <div class="stat-val">28</div>
+                <div class="stat-lbl">Ustadz / Ustadzah</div>
+              </div>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-icon bg-green">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div class="stat-info">
+                <div class="stat-val">97.8%</div>
+                <div class="stat-lbl">Presensi Siswa Hari Ini</div>
+              </div>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-icon bg-orange">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div class="stat-info">
+                <div class="stat-val">94.2%</div>
+                <div class="stat-lbl">Kolektibilitas SPP Juni</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-2">
+            <!-- Data Master Siswa -->
+            <div class="card">
+              <div class="card-title">
+                <span>Manajemen Master Data Siswa</span>
+                <button class="btn btn-success" style="padding: 6px 12px; font-size: 12px" onclick="triggerToast('Sukses menambahkan siswa baru!')">+ Siswa</button>
+              </div>
+              <div class="table-container">
+                <table class="table">
+                  <thead>
+                    <tr><th>NIS</th><th>NISN</th><th>Nama Siswa</th><th>Kelas</th><th>Status</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>2601001</td><td>0134567891</td><td>Aisyah Putri</td><td>7-A</td><td><span class="badge badge-success">Aktif</span></td></tr>
+                    <tr><td>2601002</td><td>0134567892</td><td>Muhammad Fatoni</td><td>7-A</td><td><span class="badge badge-success">Aktif</span></td></tr>
+                    <tr><td>2501015</td><td>0123984712</td><td>Ahmad Ghozali</td><td>8-B</td><td><span class="badge badge-success">Aktif</span></td></tr>
+                    <tr><td>2401056</td><td>0118274910</td><td>Zaskia Medina</td><td>9-C</td><td><span class="badge badge-success">Aktif</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Audit Trail Log -->
+            <div class="card">
+              <div class="card-title">Audit Trail Keamanan & Aktivitas (audit_logs)</div>
+              <div class="table-container">
+                <table class="table" style="font-size:12px">
+                  <thead>
+                    <tr><th>User</th><th>Aksi</th><th>Tabel</th><th>IP Address</th><th>Waktu</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>admin_ridwan</td><td><span class="badge badge-info">UPDATE</span></td><td>tagihan_siswa</td><td>192.168.10.45</td><td>18 Jun 2026 09:15</td></tr>
+                    <tr><td>bendahara_siti</td><td><span class="badge badge-success">INSERT</span></td><td>transaksi_pembayaran</td><td>192.168.10.12</td><td>18 Jun 2026 09:12</td></tr>
+                    <tr><td>guru_budi</td><td><span class="badge badge-info">UPDATE</span></td><td>asesmen_formatif</td><td>192.168.12.33</td><td>18 Jun 2026 08:45</td></tr>
+                    <tr><td>piket_haryono</td><td><span class="badge badge-success">INSERT</span></td><td>presensi_harian</td><td>192.168.10.110</td><td>18 Jun 2026 07:05</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. TAB: KEPALA SEKOLAH -->
+        <div id="tab-principal" class="tab-content">
+          <div class="grid grid-2">
+            <div class="card">
+              <div class="card-title">Ringkasan Keuangan Sekolah (Capaian SPP Semester Genap)</div>
+              <div class="chart-container">
+                <!-- Inline SVG Bar Chart representing real data of SPP collection -->
+                <svg width="400" height="150" viewBox="0 0 400 150">
+                  <line x1="40" y1="120" x2="380" y2="120" stroke="#cbd5e1" stroke-width="2"/>
+                  <text x="15" y="30" font-size="10" fill="#64748b">100%</text>
+                  <text x="15" y="75" font-size="10" fill="#64748b">50%</text>
+                  <text x="15" y="120" font-size="10" fill="#64748b">0%</text>
+                  <!-- Bars -->
+                  <rect x="60" y="40" width="30" height="80" fill="#1e4d8c" rx="3"/>
+                  <text x="60" y="135" font-size="10" fill="#475569">Jan</text>
+                  <rect x="120" y="35" width="30" height="85" fill="#1e4d8c" rx="3"/>
+                  <text x="120" y="135" font-size="10" fill="#475569">Feb</text>
+                  <rect x="180" y="25" width="30" height="95" fill="#1e4d8c" rx="3"/>
+                  <text x="180" y="135" font-size="10" fill="#475569">Mar</text>
+                  <rect x="240" y="30" width="30" height="90" fill="#1e4d8c" rx="3"/>
+                  <text x="240" y="135" font-size="10" fill="#475569">Apr</text>
+                  <rect x="300" y="15" width="30" height="105" fill="#2ec4b6" rx="3"/>
+                  <text x="300" y="135" font-size="10" fill="#475569">Mei</text>
+                  <rect x="360" y="50" width="30" height="70" fill="#f1c40f" rx="3"/>
+                  <text x="360" y="135" font-size="10" fill="#475569">Jun</text>
+                </svg>
+              </div>
+              <p style="font-size:12px; text-align:center; color:#64748b; margin-top:-10px">Status per Juni: Target Rp 78.000.000 | Terealisasi Rp 73.476.000 (94.2%)</p>
+            </div>
+
+            <div class="card">
+              <div class="card-title">Monitoring Ketidakhadiran Siswa (Akumulasi Minggu Ini)</div>
+              <table class="table">
+                <thead>
+                  <tr><th>Nama Siswa</th><th>Kelas</th><th>Sakit</th><th>Izin</th><th>Tanpa Kabar (Alpha)</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Ahmad Fathur</td><td>7-A</td><td>0</td><td>1</td><td><span class="badge badge-danger">3</span></td></tr>
+                  <tr><td>Robi Syihab</td><td>8-B</td><td>2</td><td>0</td><td><span class="badge badge-warning">1</span></td></tr>
+                  <tr><td>Siti Khodijah</td><td>9-A</td><td>3</td><td>1</td><td><span class="badge badge-success">0</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. TAB: GURU MAPEL -->
+        <div id="tab-guru" class="tab-content">
+          <div class="card" style="margin-bottom: 24px">
+            <div class="card-title">Daftar Jadwal Mengajar Ustadz Budi Santoso, S.Pd.</div>
+            <table class="table">
+              <thead>
+                <tr><th>Jam Pelajaran</th><th>Mata Pelajaran</th><th>Kelas</th><th>Ruang</th><th>Jurnal Mengajar</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>07:30 - 08:50</td><td>Matematika (Kurikulum Merdeka)</td><td>7-A</td><td>R. Ibnu Sina</td><td><button class="btn" style="padding:4px 8px; font-size:12px" onclick="triggerToast('Sukses membuka agenda mengajar!')">Input Agenda</button></td></tr>
+                <tr><td>09:00 - 10:20</td><td>Informatika</td><td>8-B</td><td>Laboratorium Komputer</td><td><button class="btn" style="padding:4px 8px; font-size:12px" onclick="triggerToast('Sukses membuka agenda mengajar!')">Input Agenda</button></td></tr>
+                <tr><td>10:40 - 12:00</td><td>Matematika (Kurikulum Merdeka)</td><td>7-B</td><td>R. Al-Khawarizmi</td><td><button class="btn" style="padding:4px 8px; font-size:12px" onclick="triggerToast('Sukses membuka agenda mengajar!')">Input Agenda</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 4. TAB: WALI KELAS -->
+        <div id="tab-homeroom" class="tab-content">
+          <div class="grid grid-2">
+            <div class="card">
+              <div class="card-title">Cetak Rapor & Penilaian Kelas 7-A</div>
+              <p style="font-size:14px; margin-bottom:15px; color:#475569">Sebagai wali kelas 7-A, Anda memiliki otoritas penuh untuk meng-generate Rapor Akademik (Kurikulum Merdeka) dan Rapor Karakter P5.</p>
+              <div class="table-container">
+                <table class="table">
+                  <thead>
+                    <tr><th>NIS</th><th>Nama Siswa</th><th>Rapor Asesmen</th><th>Rapor Proyek P5</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>2601001</td><td>Aisyah Putri</td><td><span class="badge badge-success">Siap Cetak</span></td><td><span class="badge badge-success">Siap Cetak</span></td></tr>
+                    <tr><td>2601002</td><td>Muhammad Fatoni</td><td><span class="badge badge-warning">TP Belum Lengkap</span></td><td><span class="badge badge-success">Siap Cetak</span></td></tr>
+                    <tr><td>2601003</td><td>Rizky Amalia</td><td><span class="badge badge-success">Siap Cetak</span></td><td><span class="badge badge-warning">Draf</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="card-title">Status Penilaian Capaian Proyek Karakter P5</div>
+              <table class="table">
+                <thead>
+                  <tr><th>Proyek Karakter P5 (Gaya Hidup Berkelanjutan)</th><th>Keterangan</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Dimensi 1: Beriman & Bertakwa</td><td><span class="badge badge-success">Sangat Berkembang (SB)</span></td></tr>
+                  <tr><td>Dimensi 2: Bergotong Royong</td><td><span class="badge badge-info">Berkembang Sesuai Harapan (BSH)</span></td></tr>
+                  <tr><td>Dimensi 3: Bernalar Kritis</td><td><span class="badge badge-warning">Sedang Berkembang (MB)</span></td></tr>
+                </tbody>
+              </table>
+              <button class="btn" style="margin-top:15px" onclick="switchTab('raport-pdf')">Buka Draf Rapor Rinci</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. TAB: BENDAHARA -->
+        <div id="tab-finance" class="tab-content">
+          <div class="grid grid-2">
+            <div class="card">
+              <div class="card-title">Pencatatan Keuangan Harian (Kasir)</div>
+              <p style="font-size:14px; color:#475569; margin-bottom:15px">Gunakan modul Kasir SPP untuk mencatat uang SPP masuk atau iuran sekolah lainnya secara praktis dan otomatis terintegrasi ke cetak kwitansi digital.</p>
+              <button class="btn" onclick="switchTab('form-kasir')">Buka Kasir Pembayaran</button>
+            </div>
+            
+            <div class="card">
+              <div class="card-title">Struktur Iuran Sekolah (item_pembayaran)</div>
+              <table class="table">
+                <thead>
+                  <tr><th>Nama Tagihan</th><th>Tipe</th><th>Nominal Ketetapan</th><th>Tahun Ajaran</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Infaq Pembangunan (Siswa Baru)</td><td>Satu Kali</td><td>Rp 2.500.000,00</td><td>2026/2027</td></tr>
+                  <tr><td>SPP Bulanan</td><td>Bulanan</td><td>Rp 250.000,00</td><td>2026/2027</td></tr>
+                  <tr><td>Tabungan Wajib Qurban</td><td>Sukarela</td><td>Rp 50.000,00</td><td>2026/2027</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. TAB: GURU BK -->
+        <div id="tab-bk" class="tab-content">
+          <div class="grid grid-2">
+            <div class="card">
+              <div class="card-title">Pencatatan Poin Kedisiplinan Siswa (BK Portal)</div>
+              <p style="font-size:14px; color:#475569; margin-bottom:15px">Sistem mencatat akumulasi skor poin pelanggaran siswa. Jika poin melampaui 100, sistem merekomendasikan penerbitan Surat Peringatan Pertama (SP1).</p>
+              <table class="table">
+                <thead>
+                  <tr><th>Siswa</th><th>Kelas</th><th>Akumulasi Poin</th><th>Rekomendasi Tindakan</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Zidan Al-Ghifari</td><td>8-B</td><td><span class="badge badge-danger">125 Poin</span></td><td>Penerbitan SP1 & Panggilan Orang Tua</td></tr>
+                  <tr><td>Fikri Haikal</td><td>7-A</td><td><span class="badge badge-warning">65 Poin</span></td><td>Pembinaan Internal BK</td></tr>
+                  <tr><td>Aisyah Putri</td><td>7-A</td><td><span class="badge badge-success">0 Poin</span></td><td>Pertahankan (Aman)</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card">
+              <div class="card-title">Pelanggaran Terkini Masuk (Butuh Validasi)</div>
+              <table class="table">
+                <thead>
+                  <tr><th>Tanggal</th><th>Siswa</th><th>Pelanggaran</th><th>Poin</th><th>Aksi</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>18 Juni 2026</td><td>Zidan A.</td><td>Terlambat Masuk (Ke-5)</td><td>10 Poin</td><td><button class="btn btn-success" style="padding:4px 8px; font-size:12px" onclick="triggerToast('Sukses melakukan validasi poin!')">Validasi</button></td></tr>
+                  <tr><td>17 Juni 2026</td><td>Fikri H.</td><td>Atribut Seragam Tidak Lengkap</td><td>5 Poin</td><td><button class="btn btn-success" style="padding:4px 8px; font-size:12px" onclick="triggerToast('Sukses melakukan validasi poin!')">Validasi</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. TAB: SISWA & ORANG TUA -->
+        <div id="tab-student" class="tab-content">
+          <div class="grid grid-2">
+            <div class="card">
+              <div class="card-title">Portal Monitoring Siswa — Aisyah Putri (Kelas 7-A)</div>
+              <div style="font-size:14px; line-height: 1.8">
+                <p><strong>Nama Lengkap:</strong> Aisyah Putri</p>
+                <p><strong>NIS / NISN:</strong> 2601001 / 0134567891</p>
+                <p><strong>Kelas Aktif:</strong> 7-A (Wali Kelas: Ustz. Siti Aminah)</p>
+                <p><strong>Kehadiran Semester Ini:</strong> Hadir: 98%, Sakit: 2 Hari, Izin: 1 Hari, Alpha: 0</p>
+                <p><strong>Poin Kedisiplinan:</strong> 0 Poin Pelanggaran (Sangat Baik)</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">Status Kewajiban Tagihan SPP Bulanan</div>
+              <table class="table">
+                <thead>
+                  <tr><th>Bulan Tagihan</th><th>Nominal</th><th>Status Pembayaran</th><th>Keterangan</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Juli 2026</td><td>Rp 250.000,00</td><td><span class="badge badge-success">Lunas</span></td><td>Dibayar 10-07-2026</td></tr>
+                  <tr><td>Agustus 2026</td><td>Rp 250.000,00</td><td><span class="badge badge-danger">Belum Lunas</span></td><td>Jatuh tempo 10-08-2026</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======================= FORM TABS ======================= -->
+
+        <!-- 8. FORM TAB: INPUT NILAI -->
+        <div id="form-nilai" class="tab-content">
+          <div class="card">
+            <div class="card-title">Modul Input Skor Asesmen Akademik (Kurikulum Merdeka)</div>
+            
+            <div class="input-row">
+              <div class="form-group">
+                <label class="form-label">Tahun Ajaran</label>
+                <select class="input"><option>2026/2027 (Aktif)</option></select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Kelas Sasaran</label>
+                <select class="input"><option>7-A (SMP IT)</option></select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Mata Pelajaran</label>
+                <select class="input"><option>Matematika (Kurmer)</option></select>
+              </div>
+            </div>
+
+            <div class="table-container" style="margin-top: 20px">
+              <table class="table">
+                <thead>
+                  <tr><th>No</th><th>Nama Siswa</th><th>Formatif (TP-01)</th><th>Formatif (TP-02)</th><th>Sumatif Tes (LM-01)</th><th>Sumatif Non-Tes</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td><td>Aisyah Putri</td>
+                    <td><input type="number" class="input" value="85" style="width: 80px"></td>
+                    <td><input type="number" class="input" value="90" style="width: 80px"></td>
+                    <td><input type="number" class="input" value="88" style="width: 80px"></td>
+                    <td><input type="number" class="input" value="92" style="width: 80px"></td>
+                  </tr>
+                  <tr>
+                    <td>2</td><td>Muhammad Fatoni</td>
+                    <td><input type="number" class="input" value="78" style="width: 80px"></td>
+                    <td><input type="number" class="input" value="82" style="width: 80px"></td>
+                    <td><input type="number" class="input" value="75" style="width: 80px"></td>
+                    <td><input type="number" class="input" value="80" style="width: 80px"></td>
+                  </tr>
+                  <tr>
+                    <td>3</td><td>Rizky Amalia</td>
+                    <td><input type="number" class="input" value="92" style="width: 80px"></td>
+                    <td><input type="number" class="input" value="95" style="width: 80px"></td>
+                    <td><input type="number" class="input" value="90" style="width: 80px"></td>
+                    <td><input type="number" class="input" value="94" style="width: 80px"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-top:20px; display:flex; gap:10px">
+              <button class="btn" onclick="triggerToast('Sukses menyimpan seluruh nilai akademik siswa!')">Simpan Nilai Asesmen</button>
+              <button class="btn btn-secondary" onclick="triggerToast('Kalkulasi nilai akhir rapor berhasil dijalankan!')">Hitung Nilai Akhir & Narasi Rapor</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. FORM TAB: INPUT ABSENSI PIKET -->
+        <div id="form-absensi" class="tab-content">
+          <div class="card">
+            <div class="card-title">Presensi & Pencatatan Ketidakhadiran Siswa Harian</div>
+            
+            <div class="input-row">
+              <div class="form-group">
+                <label class="form-label">Tanggal Presensi</label>
+                <input type="date" class="input" value="2026-06-18">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Kelas</label>
+                <select class="input"><option>7-A</option></select>
+              </div>
+            </div>
+
+            <div class="table-container" style="margin-top: 20px">
+              <table class="table">
+                <thead>
+                  <tr><th>No</th><th>NIS</th><th>Nama Siswa</th><th>Status Kehadiran</th><th>Keterangan Tambahan</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td><td>2601001</td><td>Aisyah Putri</td>
+                    <td>
+                      <select class="input" style="width: 140px">
+                        <option selected>Hadir</option>
+                        <option>Sakit</option>
+                        <option>Izin</option>
+                        <option>Alpha</option>
+                      </select>
+                    </td>
+                    <td><input class="input" placeholder="-"></td>
+                  </tr>
+                  <tr>
+                    <td>2</td><td>2601002</td><td>Muhammad Fatoni</td>
+                    <td>
+                      <select class="input" style="width: 140px">
+                        <option selected>Hadir</option>
+                        <option>Sakit</option>
+                        <option>Izin</option>
+                        <option>Alpha</option>
+                      </select>
+                    </td>
+                    <td><input class="input" placeholder="-"></td>
+                  </tr>
+                  <tr>
+                    <td>3</td><td>2601003</td><td>Rizky Amalia</td>
+                    <td>
+                      <select class="input" style="width: 140px">
+                        <option>Hadir</option>
+                        <option selected>Sakit</option>
+                        <option>Izin</option>
+                        <option>Alpha</option>
+                      </select>
+                    </td>
+                    <td><input class="input" value="Demam tinggi, perlu istirahat"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-top: 20px">
+              <button class="btn btn-success" onclick="triggerToast('Data presensi harian berhasil direkam!')">Simpan Presensi Harian</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. FORM TAB: KASIR SPP -->
+        <div id="form-kasir" class="tab-content">
+          <div class="grid grid-2">
+            <div class="card">
+              <div class="card-title">Input Pembayaran Nota Baru</div>
+              
+              <div class="form-group">
+                <label class="form-label">Cari Nama Siswa</label>
+                <select class="input" id="kasir-siswa-select" onchange="updateKasirSiswa()">
+                  <option value="aisyah">Aisyah Putri (7-A)</option>
+                  <option value="fatoni">Muhammad Fatoni (7-A)</option>
+                </select>
+              </div>
+
+              <div class="input-row">
+                <div class="form-group">
+                  <label class="form-label">Jenis Pembayaran</label>
+                  <select class="input"><option>SPP Bulanan (Maks Rp 250.000)</option></select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Metode Pembayaran</label>
+                  <select class="input"><option>Tunai</option><option>Transfer Bank</option></select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Jumlah Uang Disetorkan (Rp)</label>
+                <input type="number" class="input" id="spp-pay-amount" value="250000">
+              </div>
+
+              <button class="btn btn-success" onclick="executeSppPayment()">Simpan & Cetak Kwitansi QR</button>
+            </div>
+
+            <!-- Real-time dynamic payment ledger preview -->
+            <div class="card">
+              <div class="card-title">Kartu Tagihan & Sisa Tunggakan SPP</div>
+              <div class="table-container">
+                <table class="table">
+                  <thead>
+                    <tr><th>Bulan Tagihan</th><th>Kewajiban SPP</th><th>Telah Setor</th><th>Status</th></tr>
+                  </thead>
+                  <tbody id="kasir-tagihan-body">
+                    <tr><td>Juli 2026</td><td>Rp 250.000,00</td><td>Rp 250.000,00</td><td><span class="badge badge-success" id="spp-juli-badge">Lunas</span></td></tr>
+                    <tr><td>Agustus 2026</td><td>Rp 250.000,00</td><td>Rp 0,00</td><td><span class="badge badge-danger" id="spp-agustus-badge">Belum Lunas</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. FORM TAB: PREVIEW RAPOR -->
+        <div id="raport-pdf" class="tab-content">
+          <div class="raport-paper">
+            <div class="raport-header">
+              <h3>SMP ISLAM TERPADU</h3>
+              <p style="font-size:12px; color:#555; margin-top:5px">Rekomendasi Akreditasi A | Alamat: Kompleks Masjid Agung, Kota, Telp: (021) 123456</p>
+            </div>
+            
+            <p style="text-align:center; font-weight:bold; font-size:16px; margin-bottom:20px">LAPORAN HASIL ASESMEN AKADEMIK (KURIKULUM MERDEKA)</p>
+            
+            <div class="raport-info">
+              <div>
+                <strong>Nama Siswa:</strong> Aisyah Putri<br>
+                <strong>NISN / NIS:</strong> 0134567891 / 2601001
+              </div>
+              <div>
+                <strong>Kelas:</strong> 7-A (Tingkat VII)<br>
+                <strong>Tahun Ajaran / Semester:</strong> 2026/2027 / Ganjil
+              </div>
+            </div>
+
+            <table class="table" style="border: 2px solid var(--dark)">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--dark)">
+                  <th style="border-right: 1px solid var(--dark)">Mata Pelajaran</th>
+                  <th style="border-right: 1px solid var(--dark); text-align:center; width: 80px">Nilai Akhir</th>
+                  <th style="border-right: 1px solid var(--dark); text-align:center; width: 80px">Predikat</th>
+                  <th>Deskripsi Capaian Kompetensi (Kurikulum Merdeka)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border-right: 1px solid #e1e8ed; font-weight:bold">Pendidikan Agama Islam (PAI)</td>
+                  <td style="border-right: 1px solid #e1e8ed; text-align:center; font-weight:bold">88</td>
+                  <td style="border-right: 1px solid #e1e8ed; text-align:center">B</td>
+                  <td>Menunjukkan penguasaan sangat baik dalam memahami konsep fiqih ibadah harian. Perlu peningkatan dalam menghafal mufradat ayat-ayat pilihan.</td>
+                </tr>
+                <tr>
+                  <td style="border-right: 1px solid #e1e8ed; font-weight:bold">Matematika</td>
+                  <td style="border-right: 1px solid #e1e8ed; text-align:center; font-weight:bold">84</td>
+                  <td style="border-right: 1px solid #e1e8ed; text-align:center">B</td>
+                  <td>Sangat baik dalam penguasaan konsep aljabar linear sederhana. Cukup baik dalam memformulasikan model persamaan linear dari soal cerita.</td>
+                </tr>
+                <tr>
+                  <td style="border-right: 1px solid #e1e8ed; font-weight:bold">Bahasa Indonesia</td>
+                  <td style="border-right: 1px solid #e1e8ed; text-align:center; font-weight:bold">90</td>
+                  <td style="border-right: 1px solid #e1e8ed; text-align:center">A</td>
+                  <td>Menunjukkan kompetensi yang sangat matang dalam membedakan gagasan utama dan penjelas pada teks eksposisi. Pertahankan prestasi ini!</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div style="margin-top:25px; font-size:12px">
+              <strong>Catatan Kehadiran Absensi:</strong> Sakit: 2 Hari | Izin: 1 Hari | Alpha: 0 Hari
+            </div>
+
+            <div style="margin-top:40px; display:flex; justify-content:space-between; font-size:13px; text-align:center">
+              <div>
+                Orang Tua / Wali,<br><br><br><br>
+                <strong>____________________</strong>
+              </div>
+              <div>
+                Wali Kelas,<br><br><br><br>
+                <strong>Ustz. Siti Aminah, S.Pd.</strong>
+              </div>
+              <div>
+                Kepala Sekolah,<br><br><br><br>
+                <strong>Dr. H. Ahmad Ridwan, M.Pd.</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Interactive Toast Notification -->
+    <div id="toast" class="toast">
+      <span class="toast-icon">✓</span>
+      <span id="toast-message">Transaksi berhasil disimpan!</span>
+    </div>
+
+  </div>
+
+  <script>
+    // Pure Vanilla JS for Interactive Tab Switching & Simulation Logic
+    function switchTab(tabId) {
+      // 1. Hide all tab contents
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(t => t.classList.remove('active'));
+
+      // 2. Remove active class from all sidebar menus
+      const menuItems = document.querySelectorAll('.sidebar-menu');
+      menuItems.forEach(item => item.classList.remove('active'));
+
+      // 3. Show target tab content
+      const targetTab = document.getElementById(tabId);
+      if (targetTab) {
+        targetTab.classList.add('active');
+      }
+
+      // 4. Highlight the clicked menu item (if it is a sidebar link)
+      const eventTarget = window.event ? window.event.currentTarget : null;
+      if (eventTarget && eventTarget.classList.contains('sidebar-menu')) {
+        eventTarget.classList.add('active');
+      }
+
+      // 5. Update Top Header Title dynamically based on selected tab
+      const headerTitle = document.getElementById('main-header-title');
+      if (tabId === 'tab-admin') headerTitle.innerText = "Admin Dashboard & Master Data";
+      else if (tabId === 'tab-principal') headerTitle.innerText = "Dashboard Kepala Sekolah / Monitoring Real-time";
+      else if (tabId === 'tab-guru') headerTitle.innerText = "Portal Guru Mengajar & Jurnal Agenda";
+      else if (tabId === 'tab-homeroom') headerTitle.innerText = "Dashboard Wali Kelas & Cetak Rapor";
+      else if (tabId === 'tab-finance') headerTitle.innerText = "Bendahara Portal & Struktur Keuangan";
+      else if (tabId === 'tab-bk') headerTitle.innerText = "Kedisiplinan Siswa & Layanan BK Piket";
+      else if (tabId === 'tab-student') headerTitle.innerText = "Portal Monitor Perkembangan Siswa & Ortu";
+      else if (tabId === 'form-nilai') headerTitle.innerText = "Aplikasi Penilaian Akademik Kurikulum Merdeka";
+      else if (tabId === 'form-absensi') headerTitle.innerText = "Pencatatan Presensi Harian Siswa & Guru";
+      else if (tabId === 'form-kasir') headerTitle.innerText = "Kasir Pembayaran SPP & Iuran Sekolah";
+      else if (tabId === 'raport-pdf') headerTitle.innerText = "Pratinjau Hasil Rapor Asesmen (PDF Draft)";
+    }
+
+    // Interactive Notification Toast
+    function triggerToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      
+      toastMsg.innerText = message;
+      toast.classList.add('show');
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Kasir Select box update simulator
+    function updateKasirSiswa() {
+      const select = document.getElementById('kasir-siswa-select');
+      const tbody = document.getElementById('kasir-tagihan-body');
+      
+      if (select.value === 'aisyah') {
+        tbody.innerHTML = `
+          <tr><td>Juli 2026</td><td>Rp 250.000,00</td><td>Rp 250.000,00</td><td><span class="badge badge-success">Lunas</span></td></tr>
+          <tr><td>Agustus 2026</td><td>Rp 250.000,00</td><td>Rp 0,00</td><td><span class="badge badge-danger" id="spp-agustus-badge">Belum Lunas</span></td></tr>
+        `;
+      } else if (select.value === 'fatoni') {
+        tbody.innerHTML = `
+          <tr><td>Juli 2026</td><td>Rp 250.000,00</td><td>Rp 0,00</td><td><span class="badge badge-danger">Belum Lunas</span></td></tr>
+          <tr><td>Agustus 2026</td><td>Rp 250.000,00</td><td>Rp 0,00</td><td><span class="badge badge-danger">Belum Lunas</span></td></tr>
+        `;
+      }
+    }
+
+    // SPP Payment Execution Simulation
+    function executeSppPayment() {
+      const payAmount = document.getElementById('spp-pay-amount').value;
+      const select = document.getElementById('kasir-siswa-select');
+      
+      if (select.value === 'aisyah' && parseInt(payAmount) >= 250000) {
+        // Update Agustus SPP to Lunas in real-time
+        const badge = document.getElementById('spp-agustus-badge');
+        if (badge) {
+          badge.className = "badge badge-success";
+          badge.innerText = "Lunas";
+          
+          // Update the table cells values
+          const row = badge.closest('tr');
+          row.cells[2].innerText = "Rp 250.000,00";
+        }
+        triggerToast("Pembayaran SPP Agustus Aisyah Putri LUNAS! Mencetak Kwitansi Ber-QR...");
+      } else {
+        triggerToast("Pembayaran sukses terekam sebagai angsuran parsial!");
+      }
+    }
+  </script>
+</body>
+</html>

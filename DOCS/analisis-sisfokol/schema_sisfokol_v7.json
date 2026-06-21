@@ -1,0 +1,3873 @@
+{
+  "adminx": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "usernamex",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "passwordx",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "a_profil": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime NOT NULL"
+      },
+      {
+        "name": "lat_x",
+        "definition": "longtext NOT NULL"
+      },
+      {
+        "name": "lat_y",
+        "definition": "longtext NOT NULL"
+      },
+      {
+        "name": "alamat_googlemap",
+        "definition": "longtext NOT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "inv_kib_a": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(100) NOT NULL"
+      },
+      {
+        "name": "per_tahun",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "barang_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "barang_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "register",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "luas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tahun_ada",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "alamat",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "status_hak",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "status_sertifikat_tgl",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "status_sertifikat_nomor",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "penggunaan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "asal_usul",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "harga",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ket",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "inv_kib_b": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(100) NOT NULL"
+      },
+      {
+        "name": "per_tahun",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "barang_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "barang_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "register",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jumlah",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "satuan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "merk_type",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ukuran_cc",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "bahan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tahun_beli",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "nomor_pabrik",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nomor_rangka",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nomor_mesin",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nomor_polisi",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nomor_bpkb",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "asal_usul",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "harga",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ket",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "inv_kib_c": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(100) NOT NULL"
+      },
+      {
+        "name": "per_tahun",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "barang_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "barang_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "register",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kondisi",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kontruksi_tingkat",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kontruksi_beton",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "luas_lantai",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "alamat",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "dokumen_tgl",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "dokumen_nomor",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tanah_luas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tanah_status",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tanah_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "asal_usul",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tahun_ada",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "harga",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ket",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "inv_kib_d": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(100) NOT NULL"
+      },
+      {
+        "name": "per_tahun",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "barang_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "barang_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "register",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kontruksi",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "panjang",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "lebar",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "luas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "lokasi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "dokumen_tgl",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "dokumen_nomor",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tanah_status",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tanah_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "asal_usul",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tahun_ada",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "harga",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kondisi",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ket",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "inv_kib_e": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(100) NOT NULL"
+      },
+      {
+        "name": "per_tahun",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "barang_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "barang_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "register",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "buku_judul",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "buku_spek",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "corak_asal",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "corak_pencipta",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "corak_bahan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "hewan_jenis",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "hewan_ukuran",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jumlah",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tahun_cetak",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "asal_usul",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tahun_beli",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "harga",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ket",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "inv_kib_f": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(100) NOT NULL"
+      },
+      {
+        "name": "per_tahun",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "barang_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "barang_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "register",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kontruksi_tingkat",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kontruksi_beton",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "luas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "alamat",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "dokumen_tgl",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "dokumen_nomor",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "mulai_tgl",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tanah_status",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tanah_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "asal_usul",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "harga",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ket",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "jadwal": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "hari",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "hari_no",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "jam_ke",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "waktu",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_kode",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime NOT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "kurmer_asesmen_formatif": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "desk_tinggi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "desk_rendah",
+        "definition": "longtext DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "kurmer_mapel_lm": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "lm_kode",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "lm_nama",
+        "definition": "longtext DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "kurmer_mapel_tp": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "tp_kode",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "tp_nama",
+        "definition": "longtext DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "kurmer_nilai_asesmen_formatif": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "kktp",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nis",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "desk_tinggi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "desk_rendah",
+        "definition": "longtext DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "kurmer_nilai_asesmen_formatif_detail": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "kktp",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nis",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tp_kode",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "tp_nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "tp_nilai",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "kurmer_nilai_asesmen_sumatif": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "kktp",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nis",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "lm_na",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "as_non_tes",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "as_tes",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "as_na",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "nil_raport",
+        "definition": "varchar(5) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "kurmer_nilai_asesmen_sumatif_detail": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "kktp",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nis",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "lm_kode",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "lm_nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "lm_nilai",
+        "definition": "varchar(5) DEFAULT '0'"
+      }
+    ],
+    "constraints": []
+  },
+  "kurmer_nilai_proyek": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "proyek_kode",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "dimensi_kode",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kode",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nilai",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "kurmer_nilai_proyek_proses": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "proyek_kode",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kode",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "catatan",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "kurmer_proyek": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "no",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "judul",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "isi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "kurmer_proyek_detail": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "proyek_no",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "proyek_judul",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "proyek_isi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "no",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "dimensi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "elemen",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "sub_elemen",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "capaian_fase",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_bendahara": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "peg_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "peg_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "peg_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_bk_point": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "jenis_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "jenis_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "no",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "point",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "sanksi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_bk_point_jenis": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "jenis",
+        "definition": "varchar(100) NOT NULL"
+      },
+      {
+        "name": "no",
+        "definition": "varchar(2) NOT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_bk_prestasi": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "no",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "point",
+        "definition": "varchar(5) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_ekstra": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "pegawai_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "pegawai_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "pegawai_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_gurubk": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "peg_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "peg_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "peg_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_hari": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "no",
+        "definition": "char(1) DEFAULT NULL"
+      },
+      {
+        "name": "hari",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_jam": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "jam",
+        "definition": "char(2) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_kelas": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "no",
+        "definition": "char(1) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_keu_siswa": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "thn",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "bln",
+        "definition": "varchar(2) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "nominal",
+        "definition": "varchar(15) DEFAULT '0'"
+      }
+    ],
+    "constraints": []
+  },
+  "m_kib_jenis": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "nourut",
+        "definition": "varchar(2) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_kib_kode": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "golongan",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "bidang",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "kelompok",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "kelompok_sub",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "kelompok_sub_sub",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_ks": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "peg_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "peg_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "peg_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_mapel": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jenis",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "no",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "kkm",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "pegawai_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "pegawai_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "pegawai_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "rpp_postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "rpp_acc",
+        "definition": "enum('true','false') DEFAULT 'false'"
+      },
+      {
+        "name": "rpp_acc_postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "rpp_acc_ket",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "silabus_postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "silabus_acc",
+        "definition": "enum('true','false') DEFAULT 'false'"
+      },
+      {
+        "name": "silabus_acc_postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "silabus_acc_ket",
+        "definition": "longtext DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_mapel_deskripsi": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jenis",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "no",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt1_p_isi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "smt1_k_isi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "smt2_p_isi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "smt2_k_isi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_mapel_jns": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "no",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "no_sub",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "jenis",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_pegawai": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "usernamex",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "passwordx",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jabatan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "jml_absen_sakit",
+        "definition": "varchar(5) DEFAULT '0'"
+      },
+      {
+        "name": "jml_absen_ijin",
+        "definition": "varchar(5) DEFAULT '0'"
+      },
+      {
+        "name": "jml_absen_alpha",
+        "definition": "varchar(5) DEFAULT '0'"
+      },
+      {
+        "name": "jml_mengajar",
+        "definition": "varchar(5) DEFAULT '0'"
+      },
+      {
+        "name": "nowa",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jml_presensi",
+        "definition": "varchar(5) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_pembinaan": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "pembina_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "pembina_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_piket": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "usernamex",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "passwordx",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jabatan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "qrcode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_ruang": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "no",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_sarpras": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "peg_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "peg_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "peg_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_siswa": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "usernamex",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "passwordx",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "passwordx_ortu",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nourut",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "qrcode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jml_ekstra",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "jml_absen_sakit",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "jml_absen_ijin",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "jml_absen_alpha",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "subtotal_nominal",
+        "definition": "varchar(15) DEFAULT NULL"
+      },
+      {
+        "name": "subtotal_setor",
+        "definition": "varchar(15) DEFAULT NULL"
+      },
+      {
+        "name": "subtotal_belum",
+        "definition": "varchar(15) DEFAULT NULL"
+      },
+      {
+        "name": "nowa",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jml_pelanggaran",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "subtotal_pelanggaran",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "jml_presensi",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "jml_prestasi",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "subtotal_prestasi",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "subtotal_akhir",
+        "definition": "varchar(5) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_tapel": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "aktif",
+        "definition": "enum('true','false') DEFAULT 'false'"
+      }
+    ],
+    "constraints": []
+  },
+  "m_user": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "usernamex",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "passwordx",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nomor",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jabatan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tipe",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nowa",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "qrcode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate_last_login",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "jml_hadir",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "jml_telat",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "tapel_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "tapel_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "kelas_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_waktu": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "masuk_jam",
+        "definition": "varchar(2) DEFAULT NULL"
+      },
+      {
+        "name": "masuk_menit",
+        "definition": "varchar(2) DEFAULT NULL"
+      },
+      {
+        "name": "pulang_jam",
+        "definition": "varchar(2) DEFAULT NULL"
+      },
+      {
+        "name": "pulang_menit",
+        "definition": "varchar(2) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_waktu_jadwal": {
+    "columns": [
+      {
+        "name": "nourut",
+        "definition": "varchar(5) NOT NULL"
+      },
+      {
+        "name": "hari_no",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "hari_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jam_ke",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "waktu",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ket",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "m_walikelas": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "tapel_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "tapel_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas_kd",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "peg_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "peg_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "peg_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "rev_guru_absensi": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "pegawai_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "pegawai_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "pegawai_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tglnya",
+        "definition": "date DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nis",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kelamin",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "absensi",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "respon_siswa",
+        "definition": "longtext DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "rev_guru_agenda": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "pegawai_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "pegawai_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "pegawai_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tglnya",
+        "definition": "date DEFAULT NULL"
+      },
+      {
+        "name": "jamnya",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "pertemuan_ke",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "namanya",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "indikatornya",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "catatan",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "tindak_lanjut",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "daftar_siswa_absen",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "wk_catatan",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "wk_postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "wk_presensi",
+        "definition": "varchar(1) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_bayar": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tgl_bayar",
+        "definition": "date DEFAULT NULL"
+      },
+      {
+        "name": "nominal_tagihan",
+        "definition": "varchar(15) DEFAULT NULL"
+      },
+      {
+        "name": "nominal_bayar",
+        "definition": "varchar(15) DEFAULT NULL"
+      },
+      {
+        "name": "nominal_kurang",
+        "definition": "varchar(15) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_bayar_rincian": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "bayar_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "bayar_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "bayar_tgl",
+        "definition": "date DEFAULT NULL"
+      },
+      {
+        "name": "siswa_tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "item_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "item_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "item_tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "item_smt",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "item_kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "item_thn",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "item_bln",
+        "definition": "varchar(2) DEFAULT NULL"
+      },
+      {
+        "name": "item_nominal",
+        "definition": "varchar(15) DEFAULT NULL"
+      },
+      {
+        "name": "nominal_bayar",
+        "definition": "varchar(15) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_bayar_tagihan": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "item_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "item_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "item_tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "item_smt",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "item_kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "item_thn",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "item_bln",
+        "definition": "varchar(2) DEFAULT NULL"
+      },
+      {
+        "name": "item_nominal",
+        "definition": "varchar(15) DEFAULT NULL"
+      },
+      {
+        "name": "nominal_bayar",
+        "definition": "varchar(15) DEFAULT NULL"
+      },
+      {
+        "name": "nominal_kurang",
+        "definition": "varchar(15) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "lunas_status",
+        "definition": "enum('true','false') DEFAULT 'false'"
+      },
+      {
+        "name": "lunas_postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_ekstra": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nis",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ekstra_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "ekstra_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "predikat",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ket",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "entri_oleh",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_mapel_absensi": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tapel_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "tapel_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "kelas_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "pertemuan",
+        "definition": "varchar(2) DEFAULT NULL"
+      },
+      {
+        "name": "tanggal",
+        "definition": "date DEFAULT NULL"
+      },
+      {
+        "name": "absensi",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "entri_oleh",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_nilai_bln": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "siswa_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jenis",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_no",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "thn",
+        "definition": "varchar(4) DEFAULT NULL"
+      },
+      {
+        "name": "bln",
+        "definition": "varchar(2) DEFAULT NULL"
+      },
+      {
+        "name": "kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "nilai",
+        "definition": "varchar(5) DEFAULT '0'"
+      },
+      {
+        "name": "kategori",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime NOT NULL"
+      },
+      {
+        "name": "entri_oleh",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_nilai_smt": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "siswa_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jenis",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_no",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "p_bln_rata",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "k_bln_rata",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "p_ph_nilai",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "k_ph_nilai",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "p_pts_nilai",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "k_pts_nilai",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "p_pas_nilai",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "k_pas_nilai",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "p_na",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "p_na_pred",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "k_na",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "k_na_pred",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "entri_oleh",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "p_isi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "k_isi",
+        "definition": "longtext DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_nilai_thn": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "siswa_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jenis",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_no",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "mapel_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "p_na_smt1",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "p_na_smt2",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "k_na_smt1",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "k_na_smt2",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "p_pat_nilai",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "k_pat_nilai",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "p_na",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "k_na",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime NOT NULL"
+      },
+      {
+        "name": "entri_oleh",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "p_na_pred",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "k_na_pred",
+        "definition": "varchar(5) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_pelanggaran": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "tapel_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nis",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tgl",
+        "definition": "date NOT NULL"
+      },
+      {
+        "name": "jenis_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "jenis_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "jenis_nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "point_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "point_kode",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "point_nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "point_nilai",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "point_sanksi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime NOT NULL"
+      },
+      {
+        "name": "piket_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "piket_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "piket_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "piket_jabatan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "sahya",
+        "definition": "enum('true','false') DEFAULT 'false'"
+      },
+      {
+        "name": "sahya_tgl",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "bina_tgl",
+        "definition": "date DEFAULT NULL"
+      },
+      {
+        "name": "bina_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "bina_nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "bina_ket",
+        "definition": "longtext DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_prestasi": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "tapel_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nis",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tgl",
+        "definition": "date NOT NULL"
+      },
+      {
+        "name": "point_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "point_kode",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "point_nama",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "point_nilai",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "point_ket",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime NOT NULL"
+      },
+      {
+        "name": "piket_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "piket_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "piket_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "piket_jabatan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "sahya",
+        "definition": "enum('true','false') NOT NULL DEFAULT 'false'"
+      },
+      {
+        "name": "sahya_tgl",
+        "definition": "date DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_raport_catatan": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "siswa_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "isi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "entri_oleh",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_raport_kenaikan": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "siswa_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "status",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "baru_tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "baru_kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime NOT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_raport_rangking": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "total_p",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "rata_p",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "total_k",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "rata_k",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "total",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "rangking",
+        "definition": "varchar(2) DEFAULT NULL"
+      },
+      {
+        "name": "entri_oleh",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_raport_sikap": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "siswa_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "spiritual_predikat",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "spiritual_isi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "sosial_predikat",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "sosial_isi",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "entri_oleh",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_saran": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL DEFAULT ''"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tapel_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "tapel_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kelas_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "kelas_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "smt",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "saran",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "entri_oleh",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_soal": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "kd_guru_mapel",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "jadwal_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "soal_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "jawab",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "kunci",
+        "definition": "varchar(1) DEFAULT NULL"
+      },
+      {
+        "name": "benar",
+        "definition": "enum('true','false') NOT NULL DEFAULT 'false'"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_soal_nilai": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "kd_guru_mapel",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "jadwal_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "jml_benar",
+        "definition": "varchar(3) DEFAULT NULL"
+      },
+      {
+        "name": "jml_salah",
+        "definition": "varchar(3) DEFAULT NULL"
+      },
+      {
+        "name": "waktu_mulai",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "waktu_proses",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "waktu_akhir",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "skor",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "waktu_selesai",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "jml_soal_dikerjakan",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "selesai",
+        "definition": "enum('true','false') NOT NULL DEFAULT 'false'"
+      }
+    ],
+    "constraints": []
+  },
+  "siswa_tugas": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "kd_guru_mapel",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "tugas_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "filex",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "nilai",
+        "definition": "varchar(10) DEFAULT NULL"
+      },
+      {
+        "name": "nilai_postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "nilai_ket",
+        "definition": "longtext DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "user_absensi": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "user_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "user_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_jabatan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tanggal",
+        "definition": "date DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "ket",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "piket_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "piket_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "piket_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "piket_jabatan",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "user_filebox": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "user_kd",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_posisi",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_jabatan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "judul",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "kategori",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ket",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "filex",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "user_ijin": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "user_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "user_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_jabatan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tanggal",
+        "definition": "date DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "status",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ket",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "piket_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "piket_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "piket_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "piket_jabatan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "sahya",
+        "definition": "enum('true','false') DEFAULT 'false'"
+      },
+      {
+        "name": "sahya_tgl",
+        "definition": "date DEFAULT NULL"
+      },
+      {
+        "name": "sahya_qrcode",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "user_log_entri": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "user_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "user_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_posisi",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_jabatan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ket",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "dibaca",
+        "definition": "enum('true','false') NOT NULL DEFAULT 'false'"
+      },
+      {
+        "name": "dibaca_postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "user_log_login": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "user_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "user_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_posisi",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_jabatan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ipnya",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "dibaca",
+        "definition": "enum('true','false') NOT NULL DEFAULT 'false'"
+      },
+      {
+        "name": "dibaca_postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "lat_x",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "lat_y",
+        "definition": "varchar(100) DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "user_piket": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "tanggal",
+        "definition": "date DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "catatan",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "catatan_postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "user_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "user_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_jabatan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "postdate_last_login",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "user_presensi": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "user_kd",
+        "definition": "varchar(50) DEFAULT NULL"
+      },
+      {
+        "name": "user_kode",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_jabatan",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "user_tapel",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "tanggal",
+        "definition": "date DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      },
+      {
+        "name": "status",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "ket",
+        "definition": "longtext DEFAULT NULL"
+      },
+      {
+        "name": "telat_ket",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "telat_jam",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "telat_menit",
+        "definition": "varchar(5) DEFAULT NULL"
+      },
+      {
+        "name": "dibaca",
+        "definition": "enum('true','false') DEFAULT 'false'"
+      },
+      {
+        "name": "dibaca_postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  },
+  "wa_tagihan_siswa": {
+    "columns": [
+      {
+        "name": "kd",
+        "definition": "varchar(50) NOT NULL"
+      },
+      {
+        "name": "kelas",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nis",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nama",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "siswa_nowa",
+        "definition": "varchar(100) DEFAULT NULL"
+      },
+      {
+        "name": "terkirim",
+        "definition": "enum('true','false') DEFAULT 'false'"
+      },
+      {
+        "name": "nominal",
+        "definition": "varchar(15) DEFAULT NULL"
+      },
+      {
+        "name": "postdate",
+        "definition": "datetime DEFAULT NULL"
+      }
+    ],
+    "constraints": []
+  }
+}
