@@ -152,25 +152,4 @@ Route::middleware(['auth', 'role:principal'])
         Route::get('/dashboard', [PrincipalDashboardController::class, 'index'])->name('dashboard');
     });
 
-/*
-|--------------------------------------------------------------------------
-| Fallback Dashboard
-|--------------------------------------------------------------------------
-*/
-Route::middleware('auth')->get('/dashboard', function () {
-    $user = auth()->user();
-    $route = match (true) {
-        $user->hasRole('admin') => 'admin.dashboard',
-        $user->hasRole('teacher') => 'teacher.dashboard',
-        $user->hasRole('student') => 'student.dashboard',
-        $user->hasRole('homeroom-teacher') => 'homeroom.dashboard',
-        $user->hasRole('finance') => 'finance.dashboard',
-        $user->hasRole('counselor') => 'counselor.dashboard',
-        $user->hasRole('picket-officer') => 'picket.dashboard',
-        $user->hasRole('inventory') => 'inventory.dashboard',
-        $user->hasRole('principal') => 'principal.dashboard',
-        default => 'login',
-    };
 
-    return redirect()->route($route);
-})->name('dashboard');
