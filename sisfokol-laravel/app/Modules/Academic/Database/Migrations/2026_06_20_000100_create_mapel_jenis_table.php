@@ -7,14 +7,10 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('mapel_jenis', function (Blueprint $table) {
-            $table->id();
-            tenant_and_audit_columns($table);
-            $table->string('nama', 50);            // 'Wajib','Muatan Lokal','Peminatan'
-            $table->string('kode', 30)->nullable();
-            $table->timestamps();
-            $table->unique(['tenant_id', 'nama']);
-        });
+        // Created in global migrations (0001_01_01_200005_create_subject_types_table.php)
     }
-    public function down(): void { Schema::dropIfExists('mapel_jenis'); }
+    public function down(): void
+    {
+        //
+    }
 };
