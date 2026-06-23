@@ -8,20 +8,21 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('academic_years', function (Blueprint $table) {
+        Schema::create('tahun_ajaran', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50)->unique(); // e.g. 2025/2026
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
-            $table->boolean('is_active')->default(false);
-            $table->text('description')->nullable();
+            tenant_and_audit_columns($table);
+            $table->string('nama', 20);            // '2026/2027'
+            $table->date('tanggal_mulai');
+            $table->date('tanggal_selesai');
+            $table->boolean('aktif')->default(false);
             $table->timestamps();
-            $table->softDeletes();
+            $table->unique(['tenant_id', 'nama']);
+            $table->index(['tenant_id', 'aktif']);
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('academic_years');
+        Schema::dropIfExists('tahun_ajaran');
     }
 };

@@ -7,19 +7,10 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('mapel', function (Blueprint $table) {
-            $table->id();
-            tenant_and_audit_columns($table);
-            $table->string('kode', 30);
-            $table->string('nama', 100);
-            $table->unsignedBigInteger('mapel_jenis_id')->nullable();
-            $table->foreign('mapel_jenis_id')->references('id')->on('mapel_jenis')->nullOnDelete();
-            $table->decimal('kkm', 5, 2)->default(75.00);
-            $table->unsignedBigInteger('kurikulum_id')->nullable();  // FK added in kurikulum plugin Epic 9
-            $table->string('jenjang', 10)->nullable();
-            $table->timestamps();
-            $table->unique(['tenant_id', 'kode']);
-        });
+        // Table mapel is now created in global migrations (0001_01_01_200006_create_subjects_table.php)
     }
-    public function down(): void { Schema::dropIfExists('mapel'); }
+    public function down(): void
+    {
+        //
+    }
 };
