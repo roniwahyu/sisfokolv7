@@ -14,6 +14,10 @@
 - **Masalah:** Karena tabel `classrooms` dan `students` sudah dihapus/dikosongkan dan seluruh entitas diarahkan ke `kelas` dan `siswa`, seluruh request validation rule yang menggunakan `exists:classrooms`, `unique:classrooms`, `exists:students`, dll. mengalami kegagalan query (`Table 'sisfokol_laravel.classrooms' doesn't exist`).
 - **Solusi:** Memperbarui semua validasi di Laravel Request Form dan Controller agar mengarah ke tabel yang aktif (`kelas` untuk classrooms, `siswa` untuk students).
 
+### C. Kegagalan Unique/Duplicate Key pada Test Suite (`GradeCalculatorTest` & `RaporGeneratorTest`)
+- **Masalah:** Saat menjalankan unit/feature test, test suite mencoba membuat data setup dengan memanggil `TahunAjaran::create` dan `AcademicYear::create` (atau `Siswa::create` dan `Student::save`) secara terpisah. Karena tabel fisik mereka sudah disatukan di bawah `tahun_ajaran` dan `siswa`, tindakan ini melanggar primary/unique key constraint (`Duplicate entry`).
+- **Solusi:** Menyesuaikan data setup di test suite (`GradeCalculatorTest` dan `RaporGeneratorTest`) agar mengambil data menggunakan `find()` dari database dan meng-`update` alih-alih membuat entri baru.
+
 ---
 
 ## 2. Berkas yang Dimodifikasi
@@ -23,6 +27,12 @@ Berikut adalah daftar berkas yang telah diperbarui beserta tautannya:
 ### Seeder & Database
 - [database/seeders/DemoSeeder.php](file:///d:/laragon/www/sisfokolv7/sisfokol-laravel/database/seeders/DemoSeeder.php)  
   *Menghindari duplicate insert pada tabel `kelas` dan `siswa` dengan memanggil `find($id)->update()` untuk model pasangannya.*
+
+### Pengujian (Test Suite)
+- [tests/Feature/Evaluation/GradeCalculatorTest.php](file:///d:/laragon/www/sisfokolv7/sisfokol-laravel/tests/Feature/Evaluation/GradeCalculatorTest.php)  
+  *Memperbaiki setup TahunAjaran dengan melakukan retrieval/update alih-alih duplicate creation.*
+- [tests/Feature/Evaluation/RaporGeneratorTest.php](file:///d:/laragon/www/sisfokolv7/sisfokol-laravel/tests/Feature/Evaluation/RaporGeneratorTest.php)  
+  *Memperbaiki setup TahunAjaran dan Student dengan melakukan retrieval/update alih-alih duplicate creation.*
 
 ### Validasi Kelas (`classrooms` $\rightarrow$ `kelas`)
 - [app/Http/Requests/StoreClassroomRequest.php](file:///d:/laragon/www/sisfokolv7/sisfokol-laravel/app/Http/Requests/StoreClassroomRequest.php)  
@@ -56,14 +66,21 @@ Berikut adalah daftar berkas yang telah diperbarui beserta tautannya:
 
 ---
 
-## 3. Hasil Pengujian & Catatan Penting
+## 3. Hasil Pengujian & Verifikasi
 
-### Migrasi & Seeding Berhasil
+### A. Migrasi & Seeding Berhasil
 Perintah migrasi fresh dan seeding berhasil berjalan 100% tanpa error duplikasi primary key:
 ```powershell
 php83 artisan migrate:fresh --seed
 ```
 Output log menunjukkan seluruh seeder (`Database\Seeders\DemoSeeder` dkk) sukses dieksekusi dengan status `DONE`.
+
+### B. Test Suite Berhasil 100%
+Seluruh pengujian unit dan fitur telah selesai dengan sukses:
+```powershell
+php83 artisan test
+```
+**Hasil:** `Tests: 115 passed (289 assertions)` - Hijau/Green 100%!
 
 ### Catatan Terkait Lock Database (PENTING)
 > [!IMPORTANT]
