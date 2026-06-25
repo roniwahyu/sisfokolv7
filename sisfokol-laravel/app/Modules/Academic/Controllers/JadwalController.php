@@ -26,6 +26,26 @@ class JadwalController extends Controller
             'authorize'  => 'jadwal',
             'search'     => [],
             'with'       => ['tahunAjaran', 'semester', 'kelas', 'mapel', 'guru'],
+
+            // Cascading: tahun ajaran → semester
+            'cascades'   => [
+                'tahun_ajaran_id' => [
+                    'target' => 'semester_id',
+                    'query'  => fn ($value) => \App\Modules\Academic\Models\Semester::where('tahun_ajaran_id', $value),
+                    'value'  => 'id',
+                    'label'  => 'nama',
+                ],
+            ],
+
+            // Search select for guru
+            'searchSelects' => [
+                'guru_id' => [
+                    'query' => fn ($q) => \App\Modules\Academic\Models\Guru::where('nama', 'like', "%{$q}%")->where('aktif', true),
+                    'value' => 'id',
+                    'label' => 'nama',
+                ],
+            ],
+
             'rules'      => [
                 'store' => [
                     'tahun_ajaran_id' => 'required|exists:tahun_ajaran,id',
@@ -41,11 +61,10 @@ class JadwalController extends Controller
                 ],
             ],
             'viewData' => [
-                'tahunAjarans' => TahunAjaran::orderBy('nama', 'desc')->get(),
-                'semesters'    => Semester::orderBy('nama')->get(),
-                'kelasList'    => Kelas::orderBy('tingkat')->orderBy('nama')->get(),
-                'mapels'       => Mapel::orderBy('nama')->get(),
-                'gurus'        => Guru::where('aktif', true)->orderBy('nama')->get(),
+                'tahunAjarans' => \App\Modules\Academic\Models\TahunAjaran::orderBy('nama', 'desc')->get(),
+                'kelasList'    => \App\Modules\Academic\Models\Kelas::orderBy('tingkat')->orderBy('nama')->get(),
+                'mapels'       => \App\Modules\Academic\Models\Mapel::orderBy('nama')->get(),
+                // guru removed — now uses searchSelect
             ],
         ];
     }

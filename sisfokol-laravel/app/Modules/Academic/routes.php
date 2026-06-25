@@ -23,4 +23,7 @@ Route::middleware(['web', 'auth'])->prefix('academic')->name('academic.')->group
     Route::resource('orang-tua', OrangTuaController::class);
     Route::resource('kelas-siswa', KelasSiswaController::class);
     Route::resource('jadwal', JadwalController::class);
+
+    // CRUDLFIX API endpoints
+    Route::get('api/jadwal', [JadwalController::class, 'api'])->name('jadwal.api');
 });
