@@ -305,4 +305,67 @@ trait Crudlfix
 
         return $request->all();
     }
+
+    // ─── API ENDPOINT HANDLER ──────────────────────────────────────
+
+    /**
+     * Handle API requests for cascading, search select, and lazy load.
+     * Register route: Route::get('api/resource', [Controller::class, 'api']);
+     */
+    public function api(Request $request): \Illuminate\Http\JsonResponse
+    {
+        $type = $request->query('type');
+
+        return match ($type) {
+            'cascade' => $this->handleCascade($request),
+            'search'  => $this->handleSearchSelect($request),
+            default   => response()->json(['error' => 'Unknown type'], 400),
+        };
+    }
+
+    /**
+     * Handle cascade select: return child options based on parent value.
+     */
+    protected function handleCascade(Request $request): \Illuminate\Http\JsonResponse
+    {
+        $cfg = $this->config();
+        $field = $request->query('field');
+        $value = $request->query('value');
+
+        $cascade = $cfg->cascades[$field] ?? null;
+        if (!$cascade) {
+            return response()->json(['error' => 'Cascade not found'], 404);
+        }
+
+        $query = ($cascade['query'])($value);
+        $results = $query->get()->map(fn ($item) => [
+            'value' => $item->{$cascade['value']},
+            'label' => $item->{$cascade['label']},
+        ]);
+
+        return response()->json($results);
+    }
+
+    /**
+     * Handle search select: return filtered options based on query.
+     */
+    protected function handleSearchSelect(Request $request): \Illuminate\Http\JsonResponse
+    {
+        $cfg = $this->config();
+        $field = $request->query('field');
+        $search = $request->query('q', '');
+
+        $selectConfig = $cfg->searchSelects[$field] ?? null;
+        if (!$selectConfig) {
+            return response()->json(['error' => 'Search select not found'], 404);
+        }
+
+        $query = ($selectConfig['query'])($search);
+        $results = $query->limit(20)->get()->map(fn ($item) => [
+            'value' => $item->{$selectConfig['value']},
+            'label' => $item->{$selectConfig['label']},
+        ]);
+
+        return response()->json($results);
+    }
 }
