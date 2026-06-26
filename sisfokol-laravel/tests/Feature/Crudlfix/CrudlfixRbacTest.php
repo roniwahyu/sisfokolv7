@@ -171,39 +171,72 @@ class CrudlfixRbacTest extends TestCase
 
     // ─── TENANT ISOLATION ──────────────────────────────────────────
 
+    /**
+     * ADR-003: Admin from Tenant A cannot view Siswa from Tenant B.
+     * Returns 404 (not 403) to avoid revealing data existence.
+     */
     public function test_tenant_isolation_admin_cannot_view_other_tenant_siswa(): void
     {
+        // Set context to Tenant 1 (where admin1 belongs)
         app(TenantContext::class)->set($this->tenant1->id);
+        
+        // Create siswa for Tenant 2 (different tenant)
         $siswa2 = Siswa::factory()->create(['tenant_id' => $this->tenant2->id]);
 
-        app(TenantContext::class)->clear();
+        // Admin1 (Tenant 1) tries to access Siswa2 (Tenant 2)
+        // TenantContext is set to Tenant 1, so global scope filters to tenant_id = tenant1.id
+        // Siswa2 has tenant_id = tenant2.id, so it won't be found → 404
         $response = $this->actingAs($this->admin1)->get("/academic/siswa/{$siswa2->id}");
-        $response->assertStatus(403);
+        
+        // 404 = Data tidak ditemukan (tidak membocorkan keberadaan data tenant lain)
+        $response->assertStatus(404);
     }
 
+    /**
+     * ADR-003: Admin from Tenant A cannot update Siswa from Tenant B.
+     * Returns 404 to avoid revealing data existence.
+     */
     public function test_tenant_isolation_admin_cannot_update_other_tenant_siswa(): void
     {
+        // Set context to Tenant 1 (where admin1 belongs)
         app(TenantContext::class)->set($this->tenant1->id);
+        
+        // Create siswa for Tenant 2 (different tenant)
         $siswa2 = Siswa::factory()->create(['tenant_id' => $this->tenant2->id]);
 
-        app(TenantContext::class)->clear();
+        // Admin1 (Tenant 1) tries to update Siswa2 (Tenant 2)
+        // TenantContext is set to Tenant 1, so global scope filters to tenant_id = tenant1.id
+        // Siswa2 has tenant_id = tenant2.id, so it won't be found → 404
         $response = $this->actingAs($this->admin1)->put("/academic/siswa/{$siswa2->id}", [
             'nis' => $siswa2->nis,
             'nama' => 'Hacked',
             'jenis_kelamin' => 'L',
             'status' => 'aktif',
         ]);
-        $response->assertStatus(403);
+        
+        // 404 = Data tidak ditemukan (tidak membocorkan keberadaan data tenant lain)
+        $response->assertStatus(404);
     }
 
+    /**
+     * ADR-003: Admin from Tenant A cannot delete Siswa from Tenant B.
+     * Returns 404 to avoid revealing data existence.
+     */
     public function test_tenant_isolation_admin_cannot_delete_other_tenant_siswa(): void
     {
+        // Set context to Tenant 1 (where admin1 belongs)
         app(TenantContext::class)->set($this->tenant1->id);
+        
+        // Create siswa for Tenant 2 (different tenant)
         $siswa2 = Siswa::factory()->create(['tenant_id' => $this->tenant2->id]);
 
-        app(TenantContext::class)->clear();
+        // Admin1 (Tenant 1) tries to delete Siswa2 (Tenant 2)
+        // TenantContext is set to Tenant 1, so global scope filters to tenant_id = tenant1.id
+        // Siswa2 has tenant_id = tenant2.id, so it won't be found → 404
         $response = $this->actingAs($this->admin1)->delete("/academic/siswa/{$siswa2->id}");
-        $response->assertStatus(403);
+        
+        // 404 = Data tidak ditemukan (tidak membocorkan keberadaan data tenant lain)
+        $response->assertStatus(404);
     }
 
     // ─── SUPERADMIN BYPASS ─────────────────────────────────────────
