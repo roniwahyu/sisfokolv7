@@ -19,6 +19,12 @@ class DemoSeeder extends Seeder
 {
     public function run(): void
     {
+        // ─── Guard: skip jika data demo sudah ada ─────────────────────────
+        if (Tenant::where('npsn', '20000001')->exists()) {
+            $this->command->warn('⚠️  DemoSeeder dilewati — data demo sudah ada.');
+            return;
+        }
+
         // ─── 1. Buat Tenant Demo ───────────────────────────────────────────
         $tenant = Tenant::create([
             'nama'     => 'SMA Demo Sisfokol',

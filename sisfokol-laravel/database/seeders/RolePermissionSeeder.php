@@ -96,7 +96,7 @@ class RolePermissionSeeder extends Seeder
         ];
 
         foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission, 'guard_name' => 'web']);
+            Permission::firstOrCreate(['name' => $permission, 'guard_name' => 'web']);
         }
 
         $roles = [
@@ -202,12 +202,12 @@ class RolePermissionSeeder extends Seeder
         ];
 
         foreach ($roles as $roleName => $rolePermissions) {
-            $role = Role::create(['name' => $roleName, 'guard_name' => 'web']);
+            $role = Role::findOrCreate($roleName, 'web');
 
             if (in_array('*', $rolePermissions)) {
-                $role->givePermissionTo(Permission::all());
+                $role->syncPermissions(Permission::all());
             } else {
-                $role->givePermissionTo($rolePermissions);
+                $role->syncPermissions($rolePermissions);
             }
         }
     }
