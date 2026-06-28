@@ -60,3 +60,39 @@ Tangkapan layar hasil pengujian yang sukses pasca-perbaikan dapat dilihat di:
 * **Menus Override View (Tenant Admin):** `assets/077_menus_override_view.png` (Memperlihatkan hilangnya tab global dan menu platform global dari sidebar).
 
 ![Tenant Admin Terproteksi](assets/077_menus_override_view.png)
+
+---
+
+## 5. Hasil Verifikasi Automated Test Suite
+
+Seluruh pengujian unit dan fitur di bawah direktori `tests/Feature/Rbac` (terdiri dari 13 pengujian) telah selesai dijalankan pada database test (`sisfokol_laravel_test`) dan **lulus 100% (PASS)**:
+
+```bash
+php83 artisan test tests/Feature/Rbac
+```
+
+Hasil output pengujian:
+```
+ PASS  Tests\Feature\Rbac\FieldAclTest
+  ✓ field with default hidden is hidden for user without override
+  ✓ override visible wins over default hidden
+  ✓ superadmin sees everything visible
+  ✓ blade directive renders visible field
+
+ PASS  Tests\Feature\Rbac\MenuRendererTest
+  ✓ superadmin sees all active menus
+  ✓ menu hidden by role override
+  ✓ menu filtered by permission required
+  ✓ tenant admin with wildcard does not see platform menus
+  ✓ superadmin still sees platform menus
+
+ PASS  Tests\Feature\Rbac\RbacBuilderTest
+  ✓ non admin cannot access rbac builder
+  ✓ admin sekolah can access rbac index
+  ✓ admin can update role permissions
+  ✓ rbac change blocked while impersonating
+
+Tests:    13 passed (30 assertions)
+Duration: 99.89s
+```
+
